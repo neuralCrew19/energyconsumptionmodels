@@ -33,33 +33,12 @@ date_times = []
 for key, value in df_datetimes_dict.items():
     date_times.append(value)
 
-# By turning the date times into a list, it allows to parse it much better.
-
-# Get the total size of the date time items.
-total_dates = len(date_times)
-
-# Get the first and last dates. (This allows us to see the range of dates)
-oldest_date = date_times[0]
-most_recent_date = date_times[total_dates - 1]
-
-# Get the oldest and most recent years.
-oldest_year = helpers.get_year(oldest_date)
-most_recent_year = helpers.get_year(most_recent_date)
-
-# Next, create a list of the full year range.
-year_list = []
-for i in range(oldest_year, most_recent_year + 1):
-    year_list.append(i)
-
-# Now, for each year value in year_list, loop through the date_times. Create a dictionary that groups
-# all date times according to their year.
-datetimes_grouped_by_year = {}
-
 # Group the date times by year into a dictionary of values.
 #
 # So if you want all dates for 2010 for example, then you can access them by:
 #   datetimes_grouped_by_year.get('2010')
 #
+datetimes_grouped_by_year = {}
 for single_date in date_times:
     # Get the year for the date.
     single_date_year = helpers.get_year(single_date)
