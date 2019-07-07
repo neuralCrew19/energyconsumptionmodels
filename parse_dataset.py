@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 import datetime
 import helpers
+import numpy as np
 from pprint import pprint
 from ParseCalendarDays import ParseCalendarDays
 
@@ -44,3 +45,7 @@ for single_date in date_times:
     single_date_year = helpers.get_year(single_date)
     datetimes_grouped_by_year.setdefault(
         str(single_date_year), []).append(single_date)
+
+dataset_object = ParseCalendarDays(datetimes_grouped_by_year)
+
+pprint(dataset_object.get_tos_feature_scale())
